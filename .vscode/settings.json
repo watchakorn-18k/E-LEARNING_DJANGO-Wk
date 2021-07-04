@@ -1,0 +1,71 @@
+{
+    "editor.mouseWheelZoom": true,
+    "liveServer.settings.donotVerifyTags": true,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "window.zoomLevel": 2,
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "python.defaultInterpreterPath": "C:\\ProgramData\\Miniconda3\\python.exe",
+    "python.pythonPath": "C:\\ProgramData\\Miniconda3\\python.exe",
+    "editor.wordWrap": "on",
+    "php.executablePath": "D:\\xampp\\php\\php.exe",
+    "php.validate.executablePath": "D:\\xampp\\php\\php.exe",
+    "python.formatting.provider": "autopep8",
+    "editor.formatOnSave": true,
+    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",
+    "terminal.integrated.shellArgs.windows": [],
+    "extensions.ignoreRecommendations": true,
+    "workbench.iconTheme": "vscode-icons",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.factorypath": true,
+        "**/.php": true,
+        "**/.project": true,
+        "**/.settings": true
+    },
+    "[dart]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.rulers": [
+            80
+        ],
+        "editor.selectionHighlight": false,
+        "editor.suggest.snippetsPreventQuickSuggestions": false,
+        "editor.suggestSelection": "first",
+        "editor.tabCompletion": "onlySnippets",
+        "editor.wordBasedSuggestions": false
+    },
+    "dart.openDevTools": "flutter",
+    "json.schemas": [],
+    "git.enableSmartCommit": true,
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "workbench.editor.untitled.hint": "hidden",
+    "livecode.printResultPlacement": "top",
+    "discord.detailsEditing": "กำลังแก้ไฟล์ {file_name}",
+    "discord.detailsIdling": "ไม่มีการทำงาน",
+    "discord.lowerDetailsEditing": "ขนาดไฟล์ {file_size}",
+    "discord.lowerDetailsNoWorkspaceFound": "ไม่ได้ตั้งค่าพื้นที่ทำงาน",
+    "discord.lowerDetailsDebugging": "กำลังดีบัค : {workspace}",
+    "discord.detailsDebugging": "กำลังดีบัคไฟล์ {file_name}",
+    "intelephense.files.associations": [
+        "*.php",
+        "*.phtml",
+        "*.html"
+    ],
+    "beautify.language": {
+        "html": [
+            "htm",
+            "html",
+            "django-html"
+        ]
+    },
+    "files.associations": {
+        "**/templates/*.html": "django-html",
+        "**/templates/*": "django-txt",
+        "**/requirements{/**,*}.{txt,in}": "pip-requirements"
+    },
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>SC64_KPV | วิทยาศาสตร์และเทคโนโลยี โรงเรียนกลางดงปุณณวิทยา</title>
+  <meta name="description"
+    content="วิชาวิทยาศาสตร์และเทคโนโลยี ออกแบบและเทคโนโลยี เทคโนโลยี ม.4 ม.5 ม.6 โรงเรียนกลางดงปุณณวิทยา ปีการศึกษา 2564">
+  <meta name="keywords"
+    content="วิชาวิทยาศาสตร์และเทคโนโลยี ออกแบบและเทคโนโลยี เทคโนโลยี ม.4 ม.5 ม.6 โรงเรียนกลางดงปุณณวิทยา ST64KPV">
+  <meta http-equiv="content-language" content="th">
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="revisit-after" content="3 days">
+  <meta name="robots" content="index, follow">
+  <meta property="og:url" content="https://watchakorn-18k.github.io/ST64_KPV/index.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="SC64_KPV | วิทยาศาสตร์และเทคโนโลยี ผู้สอนและจัดทำโดย นายวัชกร บุตร์ดีวงษ์">
+  <meta property="og:description" content="ผู้สอนและจัดทำโดย นายวัชกร บุตร์ดีวงษ์">
+  <meta property="og:image"
+    content="https://media.discordapp.net/attachments/771007781758173207/857713068696141904/Design-Matters1.png">
+  <meta name="theme-color" content="#0091ea">
+  <link rel="icon" href="/media/Photo/favicon.png" sizes="32x32" type="image/png">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
+</head>
+<style>
+  * {
+    font-family: 'Prompt', sans-serif;
+  }
+</style>
+
+<body>
+  <nav>
+    <div class="nav-wrapper" style="background-color:#1266F1">
+      <a href="{% url 'index' %}" class="brand-logo">WatChaKorn</a>
+      <a href="{% url 'index' %}" data-activates="mobile-demo" class="button-collapse"><i class="fas fa-bars"></i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="{% url 'index' %}">หน้าแรก</a></li>
+        <li><a href="{% url 'index' %}">บทเรียน</a></li>
+        <li><a href="https://www.kpv.ac.th/">โรงเรียนกลางดงปุณณวิทยา</a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo" style="transform: translateX(-100%);">
+        <li><a href="{% url 'index' %}">หน้าแรก</a></li>
+        <li><a href="{% url 'index' %}">บทเรียน</a></li>
+        <li><a href="https://www.kpv.ac.th/" target="_blank">โรงเรียนกลางดงปุณณวิทยา</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="container" style="padding:20px">
+      <h5 class="center">
+        SC64_KPV | วิทยาศาสตร์และเทคโนโลยี
+        <small class="text-muted">รายวิชาประจำปีการศึกษา 1/2564</small>
+      </h5>
+    </div>
+  </div>
+  {% for pt07 in data.subject %}
+  <div class="container">
+    <div class="card larg">
+      <div class="card-image">
+        <img src="{{pt07.img.url}}">
+        <span class="card-title" style="text-shadow:-1px -1px 0 #333,  
+                1px -1px 0 #333,
+                -1px 1px 0 #333,
+                 1px 1px 0 #333;">{{pt07.title_sub}}</span>
+      </div>
+      <div class="card-content">
+        <p>
+          วิชา <b>{{pt07.name_sub}}</b>
+          <br>
+          รหัสวิชา <b>{{pt07.code_sub}}</b>
+          <br>
+          ครูผู้สอน <b>{{pt07.teacher}}</b>
+        </p>
+      </div>
+      <div class="card-action">
+        <a href="/class_room/{{pt07.id}}" class="waves-effect waves-light btn blue darken-4">คลิกเพื่อเข้าห้อง<i
+            class="fas fa-sign-in-alt"></i></a>
+
+      </div>
+    </div>
+  </div>
+
+  {% endfor %}
+
+
+  <!-- JQuery -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+  </script>
+  <script>
+    $(".button-collapse").sideNav();
+  </script>
+</body>
+
+</html>

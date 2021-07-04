@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% for pt07 in data.subject %}
+    <title>{{pt07.title_sub}} | SC64_KPV</title>
+    <meta name="description" content="วิชา{{pt07.title_sub}} โรงเรียนกลางดงปุณณวิทยา ปีการศึกษา 2564">
+    <meta name="keywords" content="วิชา{{pt07.title_sub}} โรงเรียนกลางดงปุณณวิทยา ST64KPV">
+    <meta http-equiv="content-language" content="th">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="revisit-after" content="3 days">
+    <meta name="robots" content="index, follow">
+    <meta property="og:url" content="{% url 'index' %}">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="{{pt07.title_sub}} | SC64_KPV ผู้สอนและจัดทำโดย {{pt07.teacher}}">
+    <meta property="og:description" content="ผู้สอนและจัดทำโดย {{pt07.teacher}}">
+    <meta property="og:image" content="{{pt07.img.url}}">
+    <meta name="theme-color" content="#0091ea">
+    <link rel="icon" href="/media/Photo/favicon.png" sizes="32x32" type="image/png">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    {% endfor %}
+</head>
+<style>
+    * {
+        font-family: 'Prompt', sans-serif;
+    }
+</style>
+
+<body>
+    <nav>
+        <div class="nav-wrapper" style="background-color:#5180ce">
+            <a href="{% url 'index' %}" class="brand-logo">WatChaKorn</a>
+            <a href="{% url 'index' %}" data-activates="mobile-demo" class="button-collapse"><i
+                    class="fas fa-bars"></i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="{% url 'index' %}">หน้าแรก</a></li>
+                <li><a href="{% url 'index' %}">บทเรียน</a></li>
+                <li><a href="https://www.kpv.ac.th/">โรงเรียนกลางดงปุณณวิทยา</a></li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo" style="transform: translateX(-100%);">
+                <li><a href="{% url 'index' %}">หน้าแรก</a></li>
+                <li><a href="{% url 'index' %}">บทเรียน</a></li>
+                <li><a href="https://www.kpv.ac.th/" target="_blank">โรงเรียนกลางดงปุณณวิทยา</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    {% for pt07 in data.subject %}
+    <div class="container">
+        <div class="container" style="padding:20px">
+            <h5 class="center">
+                SC64_KPV | {{pt07.title_sub}}
+                <small class="text-muted">รายวิชาประจำปีการศึกษา 1/2564</small>
+            </h5>
+        </div>
+    </div>
+    <div class="container">
+        <div class="parallax-container material-placeholder ">
+            <div class="parallax responsive-img"><img src="{{pt07.img.url}}"
+                    style="display: block; transform: translate3d(-50%, 361px, 0px);filter: blur(0.5rem)brightness(150%);"
+                    class="responsive-img">
+            </div>
+        </div>
+        <div class="section">
+            <div class="row">
+                <div class="container">
+                    <h5 class="header">{{pt07.title_sub}}</h5>
+                    <p class="text-darken-3 lighten-3"><i class="fas fa-laptop-code"></i> รหัสวิชา {{pt07.code_sub}}</p>
+                    <p class="text-darken-3 lighten-3"><i class="fas fa-user-circle"></i> ครูผู้สอน {{pt07.teacher}}</p>
+                    {% if pt07.id == 1 %}
+                    <ul class="collapsible popout" data-collapsible="accordion" style="padding:3%">
+                        {% for chapter_content in content_D4.content_m4 %}
+                        <li class="">
+                            <div class="collapsible-header 
+                            {% if chapter_content.lasttime == "ล่าสุด"%}
+                            active
+                            {% endif %}
+                            ">
+                                <i class="fas fa-chalkboard-teacher"></i>บทที่ {{chapter_content.chapter_id}}
+                                {{chapter_content.chapter_name}}<b style="color:rgb(255, 166, 0);">
+                                    {% if chapter_content.lasttime == "ล่าสุด"%}
+                                    *
+                                    {% endif %}
+                                </b>
+                            </div>
+                            <div class="collapsible-body" style="display: none;">
+                                <span>
+                                    <b>เนื้อหาบทที่ {{chapter_content.chapter_id}} : </b>
+                                    <ul class="collapsible expandable" data-collapsible="accordion">
+                                        <li>
+                                            <div class="collapsible-header
+                                    {% if chapter_content.lasttime == "ล่าสุด"%}
+                                    active
+                                    {% endif %}
+                                            ">
+                                                เนื้อหาบทที่ {{chapter_content.chapter_id}}
+                                                {{chapter_content.chapter_name}}
+                                            </div>
+                                            <div class="collapsible-body" style="display: block;">
+                                                <div class="video-container">
+                                                    <iframe width="853" height="480" src="{{chapter_content.content}}"
+                                                        title="YouTube video player" frameborder="0"
+                                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                        allowfullscreen=""></iframe>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <br>
+                                    <b>ใบงานที่ {{chapter_content.chapter_id}} : <a href="{{chapter_content.work}}"
+                                            target="_blank">คลิกเพื่อทำใบงาน</a></b>
+                                    <b style="color:rgb(255, 166, 0);">
+                                        {% if chapter_content.lasttime == "ล่าสุด"%}
+                                        <i class="fas fa-star-of-life"></i> ใบงานล่าสุด
+                                        {% endif %}
+                                    </b>
+                                </span>
+                            </div>
+                        </li>
+                        {% endfor %}
+                        <li>
+                            <div class="collapsible-header">
+                                <i class="fas fa-clipboard-check"></i>ตารางตรวจสอบการส่งใบงาน
+                            </div>
+                            <div class="collapsible-body">
+                                <div class="hiddendiv common"></div>
+                                <table class="responsive-table centered striped">
+                                    <thead>
+                                        <tr>
+                                            <th>ชื่อนักเรียน</th>
+                                            {% for chapter_content in content_D4.content_m4 %}
+                                            <th>ใบงานที่ {{chapter_content.chapter_id}}</th>
+                                            {% endfor%}
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for st in m4.name_m4 %}
+                                        <tr>
+                                            <td>{{st.first_name}} {{st.last_name}}</td>
+                                            {% if st.score_1 >= 1  %}
+                                            <td style="color: green;">
+                                                <i class="fas fa-check-circle"></i>
+                                            </td>
+                                            {% else  %}
+                                            <td style="color: green;"></td>
+                                            {% endif %}
+
+                                            {% if st.score_2 >= 1  %}
+                                            <td style="color: green;">
+                                                <i class="fas fa-check-circle"></i>
+                                            </td>
+                                            {% else  %}
+                                            <td style="color: green;"></td>
+                                            {% endif %}
+
+                                            {% if st.score_3 >= 1  %}
+                                            <td style="color: green;">
+                                                <i class="fas fa-check-circle"></i>
+                                            </td>
+                                            {% else  %}
+                                            <td style="color: green;"></td>
+                                            {% endif %}
+
+                                            {% if st.score_4 >= 1  %}
+                                            <td style="color: green;">
+                                                <i class="fas fa-check-circle"></i>
+                                            </td>
+                                            {% else  %}
+                                            <td style="color: green;"></td>
+                                            {% endif %}
+
+                                            {% if st.score_5 >= 1  %}
+                                            <td style="color: green;">
+                                                <i class="fas fa-check-circle"></i>
+                                            </td>
+                                            {% else  %}
+                                            <td style="color: green;"></td>
+                                            {% endif %}
+
+                                            {% if st.score_6 >= 1  %}
+                                            <td style="color: green;">
+                                                <i class="fas fa-check-circle"></i>
+                                            </td>
+                                            {% else  %}
+                                            <td style="color: green;"></td>
+                                            {% endif %}
+
+                                            {% if st.score_7 >= 1  %}
+                                            <td style="color: green;">
+                                                <i class="fas fa-check-circle"></i>
+                                            </td>
+                                            {% else  %}
+                                            <td style="color: green;"></td>
+                                            {% endif %}
+
+                                            {% if st.score_8 >= 1  %}
+                                            <td style="color: green;">
+                                                <i class="fas fa-check-circle"></i>
+                                            </td>
+                                            {% else  %}
+                                            <td style="color: green;"></td>
+                                            {% endif %}
+
+                                            {% if st.score_9 >= 1  %}
+                                            <td style="color: green;">
+                                                <i class="fas fa-check-circle"></i>
+                                            </td>
+
+                                            {% else  %}
+                                            <td style="color: green;"></td>
+                                            {% endif %}
+                                        </tr>
+                                        {% endfor %}
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </li>
+                    </ul>
+                    {% endif%}
+
+                    {% if pt07.id == 2 %}
+
+                    <ul class="collapsible popout" data-collapsible="accordion" style="padding:3%">
+                        {% for chapter_content in content_D5.Design_content_m5 %}
+                        <li class="">
+                            <div class="collapsible-header 
+                            {% if chapter_content.lasttime == "ล่าสุด"%}
+                            active
+                            {% endif %}
+                            ">
+                                <i class="fas fa-chalkboard-teacher"></i>บทที่ {{chapter_content.chapter_id}}
+                                {{chapter_content.chapter_name}}<b style="color:rgb(255, 166, 0);">
+                                    {% if chapter_content.lasttime == "ล่าสุด"%}
+                                    *
+                                    {% endif %}
+                                </b>
+                            </div>
+                            <div class="collapsible-body" style="display: none;">
+                                <span>
+                                    <b>เนื้อหาบทที่ {{chapter_content.chapter_id}} : </b>
+                                    <ul class="collapsible expandable" data-collapsible="accordion">
+                                        <li>
+                                            <div class="collapsible-header
+                                    {% if chapter_content.lasttime == "ล่าสุด"%}
+                                    active
+                                    {% endif %}
+                                            ">
+                                                เนื้อหาบทที่ {{chapter_content.chapter_id}}
+                                                {{chapter_content.chapter_name}}
+                                            </div>
+                                            <div class="collapsible-body" style="display: block;">
+                                                <div class="video-container">
+                                                    <iframe width="853" height="480" src="{{chapter_content.content}}"
+                                                        title="YouTube video player" frameborder="0"
+                                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                        allowfullscreen=""></iframe>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <br>
+                                    <b>ใบงานที่ {{chapter_content.chapter_id}} : <a href="{{chapter_content.work}}"
+                                            target="_blank">คลิกเพื่อทำใบงาน</a></b>
+                                    <b style="color:rgb(255, 166, 0);">
+                                        {% if chapter_content.lasttime == "ล่าสุด"%}
+                                        <i class="fas fa-star-of-life"></i> ใบงานล่าสุด
+                                        {% endif %}
+                                    </b>
+                                </span>
+                            </div>
+                        </li>
+                        {% endfor %}
+                        <li>
+                            <div class="collapsible-header">
+                                <i class="fas fa-clipboard-check"></i>ตารางตรวจสอบการส่งใบงาน
+                            </div>
+                            <div class="collapsible-body">
+                                <div class="hiddendiv common"></div>
+                                <table class="responsive-table centered striped">
+                                    <thead>
+                                        <tr>
+                                            <th>ชื่อนักเรียน</th>
+                                            {% for chapter_content in content_D5.Design_content_m5 %}
+                                            <th>ใบงานที่ {{chapter_content.chapter_id}}</th>
+                                            {% endfor%}
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for st in mD5.Design_name_m5 %}
+                                        <tr>
+                                            <td>{{st.first_name}} {{st.last_name}}</td>
+                                            {% if st.score_1 >= 1  %}
+                                            <td style="color: green;">
+                                                <i class="fas fa-check-circle"></i>
+                                            </td>
+                                            {% else  %}
+                                            <td style="color: green;"></td>
+                                            {% endif %}
+
+                                            {% if st.score_2 >= 1  %}
+                                            <td style="color: green;">
+                                                <i class="fas fa-check-circle"></i>
+                                            </td>
+                                            {% else  %}
+                                            <td style="color: green;"></td>
+                                            {% endif %}
+
+                                            {% if st.score_3 >= 1  %}
+                                            <td style="color: green;">
+                                                <i class="fas fa-check-circle"></i>
+                                            </td>
+                                            {% else  %}
+                                            <td style="color: green;"></td>
+                                            {% endif %}
+
+                                            {% if st.score_4 >= 1  %}
+                                            <td style="color: green;">
+                                                <i class="fas fa-check-circle"></i>
+                                            </td>
+                                            {% else  %}
+                                            <td style="color: green;"></td>
+                                            {% endif %}
+
+                                            {% if st.score_5 >= 1  %}
+                                            <td style="color: green;">
+                                                <i class="fas fa-check-circle"></i>
+                                            </td>
+                                            {% else  %}
+                                            <td style="color: green;"></td>
+                                            {% endif %}
+
+                                            {% if st.score_6 >= 1  %}
+                                            <td style="color: green;">
+                                                <i class="fas fa-check-circle"></i>
+                                            </td>
+                                            {% else  %}
+                                            <td style="color: green;"></td>
+                                            {% endif %}
+
+                                            {% if st.score_7 >= 1  %}
+                                            <td style="color: green;">
+                                                <i class="fas fa-check-circle"></i>
+                                            </td>
+                                            {% else  %}
+                                            <td style="color: green;"></td>
+                                            {% endif %}
+
+                                            {% if st.score_8 >= 1  %}
+                                            <td style="color: green;">
+                                                <i class="fas fa-check-circle"></i>
+                                            </td>
+                                            {% else  %}
+                                            <td style="color: green;"></td>
+                                            {% endif %}
+
+                                            {% if st.score_9 >= 1  %}
+                                            <td style="color: green;">
+                                                <i class="fas fa-check-circle"></i>
+                                            </td>
+
+                                            {% else  %}
+                                            <td style="color: green;"></td>
+                                            {% endif %}
+                                        </tr>
+                                        {% endfor %}
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </li>
+                    </ul>
+                    {% endif%}
+                    {% if pt07.id == 3 %}
+
+                    <ul class="collapsible popout" data-collapsible="accordion" style="padding:3%">
+                        {% for chapter_content in content_T5.Technology_content_m5 %}
+                        <li class="">
+                            <div class="collapsible-header 
+                            {% if chapter_content.lasttime == "ล่าสุด"%}
+                            active
+                            {% endif %}
+                            ">
+                                <i class="fas fa-chalkboard-teacher"></i>บทที่ {{chapter_content.chapter_id}}
+                                {{chapter_content.chapter_name}}<b style="color:rgb(255, 166, 0);">
+                                    {% if chapter_content.lasttime == "ล่าสุด"%}
+                                    *
+                                    {% endif %}
+                                </b>
+                            </div>
+                            <div class="collapsible-body">
+
+                                {% if chapter_content.content != "0"%}
+                                <b>เนื้อหาบทที่ {{chapter_content.chapter_id}} : </b>
+                                {% endif %}
+                                <ul class="collapsible expandable" data-collapsible="accordion"
+                                    {% if chapter_content.content == "0"%}style="border-top:none;margin:auto"
+                                    {% endif %}>
+                                    {% if chapter_content.content != "0"%}
+                                    <li>
+                                        <div class="collapsible-header
+                                    {% if chapter_content.lasttime == "ล่าสุด"%}
+                                    active
+                                    {% endif %}
+                                            ">
+                                            เนื้อหาบทที่ {{chapter_content.chapter_id}}
+                                        </div>
+                                        <div class="collapsible-body" style="display: block;">
+                                            <div class="video-container">
+                                                <iframe width="853" height="480" src="{{chapter_content.content}}"
+                                                    title="YouTube video player" frameborder="0"
+                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                    allowfullscreen=""></iframe>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    {% endif %}
+                                    {% if chapter_content.content_video != "0" %}
+                                    <li>
+                                        <div class="collapsible-header">
+                                            เนื้อหาวิดีโอสอนบทที่ {{chapter_content.chapter_id}}
+                                        </div>
+                                        <div class="collapsible-body" style="display: block;">
+                                            <div class="video-container">
+                                                <iframe width="853" height="480" src="{{chapter_content.content_video}}"
+                                                    title="YouTube video player" frameborder="0"
+                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                    allowfullscreen=""></iframe>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+                                <br>
+                                <b style="padding:5%">ใบงานที่ {{chapter_content.chapter_id}} :</b> <b
+                                    style="color:rgb(255, 166, 0);">
+                                    {% if chapter_content.lasttime == "ล่าสุด"%}
+                                    <i class="fas fa-star-of-life"></i> ใบงานล่าสุด
+                                    {% endif %}
+                                </b>
+                                <br>
+                                <p>{{chapter_content.textwork}}</p>
+                                <img class="responsive-img" src="{{chapter_content.work}}">
+
+                                <div class="carousel">
+                                    <br>
+                                    <h5 class="center"><b>ผลงานของนักเรียนใบงานที่ {{chapter_content.chapter_id}}</b>
+                                    </h5>
+                                    <style>
+                                        img {
+                                            border-radius: 30px;
+                                        }
+                                    </style>
+
+                                    {% for st in mT5.Technology_name_m5 %}
+                                    {% if st.work_success_student_1 != "0" and chapter_content.chapter_id == st.name_work_1 %}
+                                    <a class="carousel-item" href="#"><img height="300"
+                                            src="{{st.work_success_student_1}}"></a>
+                                    {% endif %}
+                                    {% if st.work_success_student_2 != "0" and chapter_content.chapter_id == st.name_work_2 %}
+                                    <a class="carousel-item" href="#"><img height="300"
+                                            src="{{st.work_success_student_2}}"></a>
+
+                                    {% endif %}
+                                    {% if st.work_success_student_3 != "0" and chapter_content.chapter_id == st.name_work_3 %}
+                                    <a class="carousel-item" href="#"><img height="300"
+                                            src="{{st.work_success_student_3}}"></a>
+
+                                    {% endif %}
+                                    {% if st.work_success_student_4 != "0" and chapter_content.chapter_id == st.name_work_4 %}
+                                    <a class="carousel-item" href="#"><img height="300"
+                                            src="{{st.work_success_student_4}}"></a>
+                                    {% endif %}
+                                    {% if st.work_success_student_5 != "0" and chapter_content.chapter_id == st.name_work_5 %}
+                                    <a class="carousel-item" href="#"><img height="300"
+                                            src="{{st.work_success_student_5}}"></a>
+                                    {% endif %}
+                                    {% if st.work_success_student_6 != "0" and chapter_content.chapter_id == st.name_work_6 %}
+                                    <a class="carousel-item" href="#"><img height="300"
+                                            src="{{st.work_success_student_6}}"></a>
+                                    {% endif %}
+                                    {% if st.work_success_student_7 != "0" and chapter_content.chapter_id == st.name_work_7 %}
+                                    <a class="carousel-item" href="#"><img height="300"
+                                            src="{{st.work_success_student_7}}"></a>
+                                    {% endif %}
+                                    {% if st.work_success_student_8 != "0" and chapter_content.chapter_id == st.name_work_8 %}
+                                    <a class="carousel-item" href="#"><img height="300"
+                                            src="{{st.work_success_student_8}}"></a>
+                                    {% endif %}
+                                    {% if st.work_success_student_9 != "0" and chapter_content.chapter_id == st.name_work_9 %}
+                                    <a class="carousel-item" href="#"><img height="300"
+                                            src="{{st.work_success_student_9}}"></a>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </li>
+                        {% endfor %}
+
+                        <li>
+                            <div class="collapsible-header">
+                                <i class="fas fa-clipboard-check"></i>ตารางตรวจสอบการส่งใบงาน
+                            </div>
+                            <div class="collapsible-body">
+                                <div class="hiddendiv common"></div>
+                                <table class="responsive-table centered striped">
+                                    <thead>
+                                        <tr>
+                                            <th>ชื่อนักเรียน</th>
+                                            {% for chapter_content in content_T5.Technology_content_m5 %}
+                                            <th>ใบงานที่ {{chapter_content.chapter_id}}</th>
+                                            {% endfor%}
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for st in mT5.Technology_name_m5 %}
+                                        <tr>
+                                            <td>{{st.first_name}} {{st.last_name}}</td>
+                                            {% if st.score_1 >= 1  %}
+                                            <td style="color: green;">
+                                                <i class="fas fa-check-circle"></i>
+                                            </td>
+                                            {% else  %}
+                                            <td style="color: green;"></td>
+                                            {% endif %}
+
+                                            {% if st.score_2 >= 1  %}
+                                            <td style="color: green;">
+                                                <i class="fas fa-check-circle"></i>
+                                            </td>
+                                            {% else  %}
+                                            <td style="color: green;"></td>
+                                            {% endif %}
+
+                                            {% if st.score_3 >= 1  %}
+                                            <td style="color: green;">
+                                                <i class="fas fa-check-circle"></i>
+                                            </td>
+                                            {% else  %}
+                                            <td style="color: green;"></td>
+                                            {% endif %}
+
+                                            {% if st.score_4 >= 1  %}
+                                            <td style="color: green;">
+                                                <i class="fas fa-check-circle"></i>
+                                            </td>
+                                            {% else  %}
+                                            <td style="color: green;"></td>
+                                            {% endif %}
+
+                                            {% if st.score_5 >= 1  %}
+                                            <td style="color: green;">
+                                                <i class="fas fa-check-circle"></i>
+                                            </td>
+                                            {% else  %}
+                                            <td style="color: green;"></td>
+                                            {% endif %}
+
+                                            {% if st.score_6 >= 1  %}
+                                            <td style="color: green;">
+                                                <i class="fas fa-check-circle"></i>
+                                            </td>
+                                            {% else  %}
+                                            <td style="color: green;"></td>
+                                            {% endif %}
+
+                                            {% if st.score_7 >= 1  %}
+                                            <td style="color: green;">
+                                                <i class="fas fa-check-circle"></i>
+                                            </td>
+                                            {% else  %}
+                                            <td style="color: green;"></td>
+                                            {% endif %}
+
+                                            {% if st.score_8 >= 1  %}
+                                            <td style="color: green;">
+                                                <i class="fas fa-check-circle"></i>
+                                            </td>
+                                            {% else  %}
+                                            <td style="color: green;"></td>
+                                            {% endif %}
+
+                                            {% if st.score_9 >= 1  %}
+                                            <td style="color: green;">
+                                                <i class="fas fa-check-circle"></i>
+                                            </td>
+
+                                            {% else  %}
+                                            <td style="color: green;"></td>
+                                            {% endif %}
+                                        </tr>
+                                        {% endfor %}
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </li>
+                    </ul>
+
+                    {% endif%}
+                    {% if pt07.id == 4 %}
+
+                    <ul class="collapsible popout" data-collapsible="accordion" style="padding:3%">
+                        {% for chapter_content in content_SBMLD6.content_m6 %}
+                        <li class="">
+                            <div class="collapsible-header 
+                            {% if chapter_content.lasttime == "ล่าสุด"%}
+                            active
+                            {% endif %}
+                            ">
+                                <i class="fas fa-chalkboard-teacher"></i>บทที่ {{chapter_content.chapter_id}}
+                                {{chapter_content.chapter_name}}<b style="color:rgb(255, 166, 0);">
+                                    {% if chapter_content.lasttime == "ล่าสุด"%}
+                                    *
+                                    {% endif %}
+                                </b>
+                            </div>
+                            <div class="collapsible-body" style="display: none;">
+                                <span>
+                                    <b>ตัวอย่างแบบสวยงาม : </b>
+                                    <div class="container">
+
+                                        <div class="carousel">
+                                            <a class="carousel-item" href="#"><img height="200"
+                                                    src="https://dekshowport.com/wp-content/uploads/2020/09/%C2%B5%E2%80%94%C2%ABO%CC%83%C2%ACE%CC%88%E2%80%9C%C3%9F-Portfolio_D_01-27.jpg"></a>
+                                            <a class="carousel-item" href="#"><img height="200"
+                                                    src="https://dekshowport.com/wp-content/uploads/2020/09/%C2%B5%E2%80%94%C2%ABO%CC%83%C2%ACE%CC%88%E2%80%9C%C3%9F-Portfolio_D_02-27.jpg"></a>
+                                            <a class="carousel-item" href="#"><img height="200"
+                                                    src="https://dekshowport.com/wp-content/uploads/2020/09/%C2%B5%E2%80%94%C2%ABO%CC%83%C2%ACE%CC%88%E2%80%9C%C3%9F-Portfolio_D_03-27.jpg"></a>
+                                            <a class="carousel-item" href="#"><img height="200"
+                                                    src="https://dekshowport.com/wp-content/uploads/2020/09/%C2%B5%E2%80%94%C2%ABO%CC%83%C2%ACE%CC%88%E2%80%9C%C3%9F-Portfolio_D_05-27.jpg"></a>
+                                            <a class="carousel-item" href="#"><img height="200"
+                                                    src="https://dekshowport.com/wp-content/uploads/2020/09/%C2%B5%E2%80%94%C2%ABO%CC%83%C2%ACE%CC%88%E2%80%9C%C3%9F-Portfolio_D_06-27.jpg"></a>
+                                            <a class="carousel-item" href="#"><img height="200"
+                                                    src="https://dekshowport.com/wp-content/uploads/2020/09/%C2%B5%E2%80%94%C2%ABO%CC%83%C2%ACE%CC%88%E2%80%9C%C3%9F-Portfolio_D_07-27.jpg"></a>
+                                            <a class="carousel-item" href="#"><img height="200"
+                                                    src="https://dekshowport.com/wp-content/uploads/2020/09/%C2%B5%E2%80%94%C2%ABO%CC%83%C2%ACE%CC%88%E2%80%9C%C3%9F-Portfolio_D_08-27.jpg"></a>
+                                            <a class="carousel-item" href="#"><img height="200"
+                                                    src="https://dekshowport.com/wp-content/uploads/2020/09/%C2%B5%E2%80%94%C2%ABO%CC%83%C2%ACE%CC%88%E2%80%9C%C3%9F-Portfolio_D_09-27.jpg"></a>
+                                            <a class="carousel-item" href="#"><img height="200"
+                                                    src="https://dekshowport.com/wp-content/uploads/2020/09/%C2%B5%E2%80%94%C2%ABO%CC%83%C2%ACE%CC%88%E2%80%9C%C3%9F-Portfolio_D_10-27.jpg"></a>
+                                            <a class="carousel-item" href="#"><img height="200"
+                                                    src="https://dekshowport.com/wp-content/uploads/2020/09/%C2%B5%E2%80%94%C2%ABO%CC%83%C2%ACE%CC%88%E2%80%9C%C3%9F-Portfolio_D_10-27.jpg"></a>
+                                            <a class="carousel-item" href="#"><img height="200"
+                                                    src="https://dekshowport.com/wp-content/uploads/2020/09/%C2%B5%E2%80%94%C2%ABO%CC%83%C2%ACE%CC%88%E2%80%9C%C3%9F-Portfolio_D_11-27.jpg"></a>
+                                            <a class="carousel-item" href="#"><img height="200"
+                                                    src="https://dekshowport.com/wp-content/uploads/2020/09/%C2%B5%E2%80%94%C2%ABO%CC%83%C2%ACE%CC%88%E2%80%9C%C3%9F-Portfolio_D_12-22.jpg"></a>
+                                            <a class="carousel-item" href="#"><img height="200"
+                                                    src="https://dekshowport.com/wp-content/uploads/2020/09/%C2%B5%E2%80%94%C2%ABO%CC%83%C2%ACE%CC%88%E2%80%9C%C3%9F-Portfolio_D_13-18.jpg"></a>
+                                        </div>
+                                    </div>
+                                    <b>ไฟล์ต้นฉบับ : </b>
+                                    <a href="https://dekshowport.com/%e0%b8%95%e0%b8%b1%e0%b8%a7%e0%b8%ad%e0%b8%a2%e0%b9%88%e0%b8%b2%e0%b8%87-portfolio-ep221/"
+                                        target="_blank" rel="noopener noreferrer">ดาวน์โหลดได้ที่นี่</a>
+                                    <br>
+                                    {% if chapter_content.content != "0"%}
+                                    <br>
+                                    <b>เนื้อหาบทที่ {{chapter_content.chapter_id}} : </b>
+                                    <ul class="collapsible expandable" data-collapsible="accordion">
+                                        <li>
+                                            <div class="collapsible-header
+                                    {% if chapter_content.lasttime == "ล่าสุด"%}
+                                    active
+                                    {% endif %}
+                                            ">
+                                                เนื้อหาบทที่ {{chapter_content.chapter_id}}
+                                                {{chapter_content.chapter_name}}
+                                            </div>
+                                            <div class="collapsible-body" style="display: block;">
+                                                <div class="video-container">
+                                                    <iframe width="853" height="480" src="{{chapter_content.content}}"
+                                                        title="YouTube video player" frameborder="0"
+                                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                        allowfullscreen=""></iframe>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    {% endif %}
+                                    <b>วิดีโอสาธิต : </b>
+                                    <br>
+                                    <ul class="collapsible expandable" data-collapsible="accordion">
+                                        <li>
+                                            <div class="collapsible-header">
+                                                วิดีโอสาธิตการสร้าง Portfolio
+                                            </div>
+                                            <div class="collapsible-body">
+                                                <div class="video-container">
+
+                                                    <iframe width="853" height="480"
+                                                        src="{{chapter_content.content_video}}"
+                                                        title="YouTube video player" frameborder="0"
+                                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                        allowfullscreen></iframe>
+
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+
+                                    <b>ใบงานที่ {{chapter_content.chapter_id_work}} : </b> <b
+                                        style="color:rgb(255, 166, 0);">
+                                        {% if chapter_content.lasttime == "ล่าสุด"%}
+                                        <i class="fas fa-star-of-life"></i> ใบงานล่าสุด</b>
+                                    {% endif %}
+
+                                    <br>
+                                    <img src="{{chapter_content.work}}" alt="" class="responsive-img"
+                                        class="responsive-img" style="padding: 5%;   display: block;
+                        margin-left: auto;
+                        margin-right: auto;
+                        ">
+                                    <b>ตัวอย่างใบงานที่ {{chapter_content.chapter_id_work}} : </b> <b
+                                        style="color:rgb(255, 166, 0);">
+                                        {% if chapter_content.lasttime == "ล่าสุด"%}
+                                        <i class="fas fa-star-of-life"></i> ใบงานล่าสุด</b>
+                                    {% endif %}
+                                    <br>
+                                    <img src="{{chapter_content.example_work}}" width="50%" alt=""
+                                        class="responsive-img center" style="padding: 5%;   display: block;
+                        margin-left: auto;
+                        margin-right: auto;
+                        ">
+                                    <br>
+
+                                    <b>วิธีการส่ง : </b>
+                                    {{chapter_content.textwork}} <b style="color:rgb(255, 166, 0);">
+                                        {% if chapter_content.lasttime == "ล่าสุด"%}
+                                        <i class="fas fa-star-of-life"></i> ใบงานล่าสุด</b>
+                                    {% endif %}
+                                    <div class="carousel">
+                                        <style>
+                                            img {
+                                                border-radius: 30px;
+                                            }
+                                        </style>
+
+                                        {% for st in m6.name_m6 %}
+                                        {% if st.work_success_student_1 != "0" and chapter_content.chapter_id_work == st.name_work_1 %}
+                                        <a class="carousel-item" href="#"><img height="300"
+                                                src="{{st.work_success_student_1}}"></a>
+                                        {% endif %}
+                                        {% if st.work_success_student_2 != "0" and chapter_content.chapter_id_work == st.name_work_2 %}
+                                        <a class="carousel-item" href="#"><img height="300"
+                                                src="{{st.work_success_student_2}}"></a>
+
+                                        {% endif %}
+                                        {% if st.work_success_student_3 != "0" and chapter_content.chapter_id_work == st.name_work_3 %}
+                                        <a class="carousel-item" href="#"><img height="300"
+                                                src="{{st.work_success_student_3}}"></a>
+
+                                        {% endif %}
+                                        {% if st.work_success_student_4 != "0" and chapter_content.chapter_id_work == st.name_work_4 %}
+                                        <a class="carousel-item" href="#"><img height="300"
+                                                src="{{st.work_success_student_4}}"></a>
+                                        {% endif %}
+                                        {% if st.work_success_student_5 != "0" and chapter_content.chapter_id_work == st.name_work_5 %}
+                                        <a class="carousel-item" href="#"><img height="300"
+                                                src="{{st.work_success_student_5}}"></a>
+                                        {% endif %}
+                                        {% if st.work_success_student_6 != "0" and chapter_content.chapter_id_work == st.name_work_6 %}
+                                        <a class="carousel-item" href="#"><img height="300"
+                                                src="{{st.work_success_student_6}}"></a>
+                                        {% endif %}
+                                        {% if st.work_success_student_7 != "0" and chapter_content.chapter_id_work == st.name_work_7 %}
+                                        <a class="carousel-item" href="#"><img height="300"
+                                                src="{{st.work_success_student_7}}"></a>
+                                        {% endif %}
+                                        {% if st.work_success_student_8 != "0" and chapter_content.chapter_id_work == st.name_work_8 %}
+                                        <a class="carousel-item" href="#"><img height="300"
+                                                src="{{st.work_success_student_8}}"></a>
+                                        {% endif %}
+                                        {% if st.work_success_student_9 != "0" and chapter_content.chapter_id_work == st.name_work_9 %}
+                                        <a class="carousel-item" href="#"><img height="300"
+                                                src="{{st.work_success_student_9}}"></a>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </div>
+
+                                </span>
+                            </div>
+                        </li>
+                        {% endfor %}
+                        <li>
+                            <div class="collapsible-header">
+                                <i class="fas fa-clipboard-check"></i>ตารางตรวจสอบการส่งใบงาน
+                            </div>
+                            <div class="collapsible-body">
+                                <div class="hiddendiv common"></div>
+                                <table class="responsive-table centered striped">
+                                    <thead>
+                                        <tr>
+                                            <th>ชื่อนักเรียน</th>
+                                            {% for chapter_content in content_SBMLD6.content_m6 %}
+                                            <th>ใบงานที่ {{chapter_content.chapter_id}}</th>
+                                            {% endfor%}
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for st in m6.name_m6 %}
+                                        <tr>
+                                            <td>{{st.first_name}} {{st.last_name}}</td>
+                                            {% if st.score_1 >= 1  %}
+                                            <td style="color: green;">
+                                                <i class="fas fa-check-circle"></i>
+                                            </td>
+                                            {% else  %}
+                                            <td style="color: green;"></td>
+                                            {% endif %}
+
+                                            {% if st.score_2 >= 1  %}
+                                            <td style="color: green;">
+                                                <i class="fas fa-check-circle"></i>
+                                            </td>
+                                            {% else  %}
+                                            <td style="color: green;"></td>
+                                            {% endif %}
+
+                                            {% if st.score_3 >= 1  %}
+                                            <td style="color: green;">
+                                                <i class="fas fa-check-circle"></i>
+                                            </td>
+                                            {% else  %}
+                                            <td style="color: green;"></td>
+                                            {% endif %}
+
+                                            {% if st.score_4 >= 1  %}
+                                            <td style="color: green;">
+                                                <i class="fas fa-check-circle"></i>
+                                            </td>
+                                            {% else  %}
+                                            <td style="color: green;"></td>
+                                            {% endif %}
+
+                                            {% if st.score_5 >= 1  %}
+                                            <td style="color: green;">
+                                                <i class="fas fa-check-circle"></i>
+                                            </td>
+                                            {% else  %}
+                                            <td style="color: green;"></td>
+                                            {% endif %}
+
+                                            {% if st.score_6 >= 1  %}
+                                            <td style="color: green;">
+                                                <i class="fas fa-check-circle"></i>
+                                            </td>
+                                            {% else  %}
+                                            <td style="color: green;"></td>
+                                            {% endif %}
+
+                                            {% if st.score_7 >= 1  %}
+                                            <td style="color: green;">
+                                                <i class="fas fa-check-circle"></i>
+                                            </td>
+                                            {% else  %}
+                                            <td style="color: green;"></td>
+                                            {% endif %}
+
+                                            {% if st.score_8 >= 1  %}
+                                            <td style="color: green;">
+                                                <i class="fas fa-check-circle"></i>
+                                            </td>
+                                            {% else  %}
+                                            <td style="color: green;"></td>
+                                            {% endif %}
+
+                                            {% if st.score_9 >= 1  %}
+                                            <td style="color: green;">
+                                                <i class="fas fa-check-circle"></i>
+                                            </td>
+
+                                            {% else  %}
+                                            <td style="color: green;"></td>
+                                            {% endif %}
+                                        </tr>
+                                        {% endfor %}
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </li>
+                    </ul>
+                    {% endif%}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    {% endfor %}
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+    </script>
+    <script>
+        $(".button-collapse").sideNav();
+        $('.parallax').parallax();
+        $('.modal').modal();
+        $(document).ready(function () {
+            $('.carousel').carousel();
+        });
+    </script>
+</body>
+
+</html>
