@@ -7,7 +7,8 @@ from django.db import models
     photo = models.ImageField(upload_to="Photo", default='')
 
     # เก็บข้อมูลประเภท Char มีขนาดมากสุด 1000 ตัวอักษร
-    title = models.CharField(max_length=1000)
+    title = models.TextField(
+        max_length=1000)
 
     # เก็บข้อมูลประเภท Date หรือ วันเวลามีการอัพเดทครั้งเดียวคือตอนบันทึกข้อมูล
     date = models.DateTimeField(auto_now_add=True, blank=False)
@@ -22,10 +23,14 @@ from django.db import models
 
 class Subject_head(models.Model):
     img = models.ImageField(upload_to="Photo", default='')
-    title_sub = models.CharField(max_length=1000)
-    name_sub = models.CharField(max_length=5000)
-    code_sub = models.CharField(max_length=5000)
-    teacher = models.CharField(max_length=5000)
+    title_sub = models.TextField(
+        max_length=1000)
+    name_sub = models.TextField(
+        max_length=5000)
+    code_sub = models.TextField(
+        max_length=5000)
+    teacher = models.TextField(
+        max_length=5000)
 
     class Meta:
         verbose_name_plural = "ข้อมูลวิชาทั้งหมด"
@@ -38,9 +43,11 @@ class Subject_head(models.Model):
 
 
 class Student_name_m_4(models.Model):
-    first_name = models.CharField(
+    first_name = models.TextField(
+
         max_length=5000, verbose_name="ชื่อจริง")
-    last_name = models.CharField(max_length=5000, verbose_name="นามสกุล")
+    last_name = models.TextField(
+        max_length=5000, verbose_name="นามสกุล")
     score_1 = models.IntegerField(
         default="0", verbose_name="คะแนนที่ 1")
     score_2 = models.IntegerField(
@@ -80,9 +87,11 @@ class Student_name_m_4(models.Model):
 
 
 class Design_Student_name_m_5(models.Model):
-    first_name = models.CharField(
+    first_name = models.TextField(
+
         max_length=5000, verbose_name="ชื่อจริง")
-    last_name = models.CharField(max_length=5000, verbose_name="นามสกุล")
+    last_name = models.TextField(
+        max_length=5000, verbose_name="นามสกุล")
     score_1 = models.IntegerField(
         default="0", verbose_name="คะแนนที่ 1")
     score_2 = models.IntegerField(
@@ -123,62 +132,82 @@ class Design_Student_name_m_5(models.Model):
 
 
 class Technology_Student_name_m_5(models.Model):
-    first_name = models.CharField(
+    first_name = models.TextField(
+
         max_length=5000, verbose_name="ชื่อจริง")
-    last_name = models.CharField(max_length=5000, verbose_name="นามสกุล")
-    name_work_1 = models.CharField(
+    last_name = models.TextField(
+        max_length=5000, verbose_name="นามสกุล")
+    name_work_1 = models.TextField(
+
         max_length=5000, default="1", verbose_name="ใบงานที่ 1")
     score_1 = models.IntegerField(
         default="0", verbose_name="คะแนนใบงานที่ 1")
-    work_success_student_1 = models.CharField(
+    work_success_student_1 = models.TextField(
+
         max_length=5000, default="0", verbose_name="ผลงานที่เสร็จ 1")
-    name_work_2 = models.CharField(
+    name_work_2 = models.TextField(
+
         max_length=5000, default="2", verbose_name="ใบงานที่ 2")
     score_2 = models.IntegerField(
         default="0", verbose_name="คะแนนใบงานที่ 2")
-    work_success_student_2 = models.CharField(
+    work_success_student_2 = models.TextField(
+
         max_length=5000, default="0", verbose_name="ผลงานที่เสร็จ 2")
-    name_work_3 = models.CharField(
+    name_work_3 = models.TextField(
+
         max_length=5000, default="3", verbose_name="ใบงานที่ 3")
     score_3 = models.IntegerField(
         default="0", verbose_name="คะแนนใบงานที่ 3")
-    work_success_student_3 = models.CharField(
+    work_success_student_3 = models.TextField(
+
         max_length=5000, default="0", verbose_name="ผลงานที่เสร็จ 3")
-    name_work_4 = models.CharField(
+    name_work_4 = models.TextField(
+
         max_length=5000, default="4", verbose_name="ใบงานที่ 4")
     score_4 = models.IntegerField(
         default="0", verbose_name="คะแนนใบงานที่ 4")
-    work_success_student_4 = models.CharField(
+    work_success_student_4 = models.TextField(
+
         max_length=5000, default="0", verbose_name="ผลงานที่เสร็จ 4")
-    name_work_5 = models.CharField(
+    name_work_5 = models.TextField(
+
         max_length=5000, default="5", verbose_name="ใบงานที่ 5")
     score_5 = models.IntegerField(
         default="0", verbose_name="คะแนนใบงานที่ 5")
-    work_success_student_5 = models.CharField(
+    work_success_student_5 = models.TextField(
+
         max_length=5000, default="0", verbose_name="ผลงานที่เสร็จ 5")
-    name_work_6 = models.CharField(
+    name_work_6 = models.TextField(
+
         max_length=5000, default="6", verbose_name="ใบงานที่ 6")
     score_6 = models.IntegerField(
         default="0", verbose_name="คะแนนใบงานที่ 6")
-    work_success_student_6 = models.CharField(
+    work_success_student_6 = models.TextField(
+
         max_length=5000, default="0", verbose_name="ผลงานที่เสร็จ 6")
-    name_work_7 = models.CharField(
+    name_work_7 = models.TextField(
+
         max_length=5000, default="7", verbose_name="ใบงานที่ 7")
     score_7 = models.IntegerField(
         default="0", verbose_name="คะแนนใบงานที่ 7")
-    work_success_student_7 = models.CharField(
+    work_success_student_7 = models.TextField(
+
         max_length=5000, default="0", verbose_name="ผลงานที่เสร็จ 7")
-    name_work_8 = models.CharField(
+    name_work_8 = models.TextField(
+
         max_length=5000, default="8", verbose_name="ใบงานที่ 8")
     score_8 = models.IntegerField(
         default="0", verbose_name="คะแนนใบงานที่ 8")
-    work_success_student_8 = models.CharField(
+    work_success_student_8 = models.TextField(
+
         max_length=5000, default="0", verbose_name="ผลงานที่เสร็จ 8")
-    name_work_9 = models.CharField(
+    name_work_9 = models.TextField(
+
         max_length=5000, default="9", verbose_name="ใบงานที่ 9")
     score_9 = models.IntegerField(
         default="0", verbose_name="คะแนนใบงานที่ 9")
-    work_success_student_9 = models.CharField(
+    work_success_student_9 = models.TextField(
+
         max_length=5000, default="0", verbose_name="ผลงานที่เสร็จ 9")
 
     class Meta:
@@ -201,62 +230,82 @@ class Technology_Student_name_m_5(models.Model):
 
 
 class SBMLD_Student_name_m_6(models.Model):
-    first_name = models.CharField(
+    first_name = models.TextField(
+
         max_length=5000, verbose_name="ชื่อจริง")
-    last_name = models.CharField(max_length=5000, verbose_name="นามสกุล")
-    name_work_1 = models.CharField(
+    last_name = models.TextField(
+        max_length=5000, verbose_name="นามสกุล")
+    name_work_1 = models.TextField(
+
         max_length=5000, default="1", verbose_name="ใบงานที่ 1")
     score_1 = models.IntegerField(
         default="0", verbose_name="คะแนนใบงานที่ 1")
-    work_success_student_1 = models.CharField(
+    work_success_student_1 = models.TextField(
+
         max_length=5000, default="0", verbose_name="ผลงานที่เสร็จ 1")
-    name_work_2 = models.CharField(
+    name_work_2 = models.TextField(
+
         max_length=5000, default="2", verbose_name="ใบงานที่ 2")
     score_2 = models.IntegerField(
         default="0", verbose_name="คะแนนใบงานที่ 2")
-    work_success_student_2 = models.CharField(
+    work_success_student_2 = models.TextField(
+
         max_length=5000, default="0", verbose_name="ผลงานที่เสร็จ 2")
-    name_work_3 = models.CharField(
+    name_work_3 = models.TextField(
+
         max_length=5000, default="3", verbose_name="ใบงานที่ 3")
     score_3 = models.IntegerField(
         default="0", verbose_name="คะแนนใบงานที่ 3")
-    work_success_student_3 = models.CharField(
+    work_success_student_3 = models.TextField(
+
         max_length=5000, default="0", verbose_name="ผลงานที่เสร็จ 3")
-    name_work_4 = models.CharField(
+    name_work_4 = models.TextField(
+
         max_length=5000, default="4", verbose_name="ใบงานที่ 4")
     score_4 = models.IntegerField(
         default="0", verbose_name="คะแนนใบงานที่ 4")
-    work_success_student_4 = models.CharField(
+    work_success_student_4 = models.TextField(
+
         max_length=5000, default="0", verbose_name="ผลงานที่เสร็จ 4")
-    name_work_5 = models.CharField(
+    name_work_5 = models.TextField(
+
         max_length=5000, default="5", verbose_name="ใบงานที่ 5")
     score_5 = models.IntegerField(
         default="0", verbose_name="คะแนนใบงานที่ 5")
-    work_success_student_5 = models.CharField(
+    work_success_student_5 = models.TextField(
+
         max_length=5000, default="0", verbose_name="ผลงานที่เสร็จ 5")
-    name_work_6 = models.CharField(
+    name_work_6 = models.TextField(
+
         max_length=5000, default="6", verbose_name="ใบงานที่ 6")
     score_6 = models.IntegerField(
         default="0", verbose_name="คะแนนใบงานที่ 6")
-    work_success_student_6 = models.CharField(
+    work_success_student_6 = models.TextField(
+
         max_length=5000, default="0", verbose_name="ผลงานที่เสร็จ 6")
-    name_work_7 = models.CharField(
+    name_work_7 = models.TextField(
+
         max_length=5000, default="7", verbose_name="ใบงานที่ 7")
     score_7 = models.IntegerField(
         default="0", verbose_name="คะแนนใบงานที่ 7")
-    work_success_student_7 = models.CharField(
+    work_success_student_7 = models.TextField(
+
         max_length=5000, default="0", verbose_name="ผลงานที่เสร็จ 7")
-    name_work_8 = models.CharField(
+    name_work_8 = models.TextField(
+
         max_length=5000, default="8", verbose_name="ใบงานที่ 8")
     score_8 = models.IntegerField(
         default="0", verbose_name="คะแนนใบงานที่ 8")
-    work_success_student_8 = models.CharField(
+    work_success_student_8 = models.TextField(
+
         max_length=5000, default="0", verbose_name="ผลงานที่เสร็จ 8")
-    name_work_9 = models.CharField(
+    name_work_9 = models.TextField(
+
         max_length=5000, default="9", verbose_name="ใบงานที่ 9")
     score_9 = models.IntegerField(
         default="0", verbose_name="คะแนนใบงานที่ 9")
-    work_success_student_9 = models.CharField(
+    work_success_student_9 = models.TextField(
+
         max_length=5000, default="0", verbose_name="ผลงานที่เสร็จ 9")
 
     class Meta:
@@ -279,16 +328,22 @@ class SBMLD_Student_name_m_6(models.Model):
 
 
 class Chapter_content_m4(models.Model):
-    chapter_id = models.CharField(max_length=5000, verbose_name="บทที่")
-    chapter_name = models.CharField(
+    chapter_id = models.TextField(
+        max_length=5000, verbose_name="บทที่")
+    chapter_name = models.TextField(
+
         max_length=5000, verbose_name="ชื่อบท")
-    content = models.CharField(
+    content = models.TextField(
+
         max_length=5000, verbose_name="ลิงก์เนื้อหา iframe")
-    work = models.CharField(max_length=5000,
-                            verbose_name="ลิงก์ใบงาน รูปภาพ")
-    content_video = models.CharField(
+    work = models.TextField(
+        max_length=5000,
+        verbose_name="ลิงก์ใบงาน รูปภาพ")
+    content_video = models.TextField(
+
         max_length=5000, verbose_name="ลิงก์เนื้อหา วิดีโอ", default="0")
-    lasttime = models.CharField(max_length=5000, verbose_name="ระยะเวลา")
+    lasttime = models.TextField(
+        max_length=5000, verbose_name="ระยะเวลา")
 
     class Meta:
         verbose_name_plural = "เนื้อหาวิชาออกแบบและเทคโนโลยี ม.4"
@@ -309,16 +364,22 @@ class Chapter_content_m4(models.Model):
 
 
 class Design_Chapter_content_m5(models.Model):
-    chapter_id = models.CharField(max_length=5000, verbose_name="บทที่")
-    chapter_name = models.CharField(
+    chapter_id = models.TextField(
+        max_length=5000, verbose_name="บทที่")
+    chapter_name = models.TextField(
+
         max_length=5000, verbose_name="ชื่อบท")
-    content = models.CharField(
+    content = models.TextField(
+
         max_length=5000, verbose_name="ลิงก์เนื้อหา iframe")
-    work = models.CharField(max_length=5000,
-                            verbose_name="ลิงก์ใบงาน รูปภาพ")
-    content_video = models.CharField(
+    work = models.TextField(
+        max_length=5000,
+        verbose_name="ลิงก์ใบงาน รูปภาพ")
+    content_video = models.TextField(
+
         max_length=5000, verbose_name="ลิงก์เนื้อหา วิดีโอ", default="0")
-    lasttime = models.CharField(max_length=5000, verbose_name="ระยะเวลา")
+    lasttime = models.TextField(
+        max_length=5000, verbose_name="ระยะเวลา")
 
     class Meta:
         verbose_name_plural = "เนื้อหาวิชาออกแบบและเทคโนโลยี ม.5"
@@ -339,18 +400,25 @@ class Design_Chapter_content_m5(models.Model):
 
 
 class Technology_Chapter_content_m5(models.Model):
-    chapter_id = models.CharField(max_length=5000, verbose_name="บทที่")
-    chapter_name = models.CharField(
+    chapter_id = models.TextField(
+        max_length=5000, verbose_name="บทที่")
+    chapter_name = models.TextField(
+
         max_length=5000, verbose_name="ชื่อบท")
-    content = models.CharField(
+    content = models.TextField(
+
         max_length=5000, verbose_name="ลิงก์เนื้อหา iframe")
-    textwork = models.CharField(
+    textwork = models.TextField(
+
         max_length=5000, verbose_name="อธิบายใบงาน")
-    work = models.CharField(max_length=5000,
-                            verbose_name="ลิงก์ใบงาน รูปภาพ")
-    content_video = models.CharField(
+    work = models.TextField(
+        max_length=5000,
+        verbose_name="ลิงก์ใบงาน รูปภาพ")
+    content_video = models.TextField(
+
         max_length=5000, verbose_name="ลิงก์เนื้อหา วิดีโอ", default="0")
-    lasttime = models.CharField(max_length=5000, verbose_name="ระยะเวลา")
+    lasttime = models.TextField(
+        max_length=5000, verbose_name="ระยะเวลา")
 
     class Meta:
         verbose_name_plural = "เนื้อหาวิชาเทคโนโลยี ม.5"
@@ -371,23 +439,32 @@ class Technology_Chapter_content_m5(models.Model):
 
 
 class SBMLD_Chapter_content_m6(models.Model):
-    chapter_id = models.CharField(max_length=5000, verbose_name="บทที่")
-    chapter_name = models.CharField(
-        max_length=5000, verbose_name="ชื่อบท")
-    content = models.CharField(
-        max_length=5000, verbose_name="ลิงก์เนื้อหา iframe")
-    content_video = models.CharField(
-        max_length=5000, verbose_name="ลิงก์เนื้อหา วิดีโอ", default="0")
-    chapter_id_work = models.CharField(
-        max_length=5000, verbose_name="ใบงานที่")
-    example_work = models.CharField(
-        max_length=5000, verbose_name="ลิงก์รูปตัวอย่าง")
-    textwork = models.CharField(
-        max_length=5000, verbose_name="อธิบายใบงาน")
-    work = models.CharField(max_length=5000,
-                            verbose_name="ลิงก์ใบงาน รูปภาพ")
+    chapter_id = models.TextField(
+        max_length=5000, verbose_name="บทที่")
+    chapter_name = models.TextField(
 
-    lasttime = models.CharField(max_length=5000, verbose_name="ระยะเวลา")
+        max_length=5000, verbose_name="ชื่อบท")
+    content = models.TextField(
+
+        max_length=5000, verbose_name="ลิงก์เนื้อหา iframe")
+    content_video = models.TextField(
+
+        max_length=5000, verbose_name="ลิงก์เนื้อหา วิดีโอ", default="0")
+    chapter_id_work = models.TextField(
+
+        max_length=5000, verbose_name="ใบงานที่")
+    example_work = models.TextField(
+
+        max_length=5000, verbose_name="ลิงก์รูปตัวอย่าง")
+    textwork = models.TextField(
+
+        max_length=5000, verbose_name="อธิบายใบงาน")
+    work = models.TextField(
+        max_length=5000,
+        verbose_name="ลิงก์ใบงาน รูปภาพ")
+
+    lasttime = models.TextField(
+        max_length=5000, verbose_name="ระยะเวลา")
 
     class Meta:
         verbose_name_plural = "เนื้อหาวิชา SBMLD ม.6"
