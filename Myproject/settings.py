@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -28,7 +29,7 @@ DEBUG = False
 ALLOWED_HOSTS = ['https://django-e-learning.herokuapp.com/']
 
 
-# Application definition
+# Application definitio
 
 INSTALLED_APPS = [
     'django.contrib.admin',
