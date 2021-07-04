@@ -11,8 +11,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-import dj_database_url
-
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,12 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-kn$=sg5^*4v@1qp_+^h-+g&)l2tjrme_=ea8xtcyc9nuwufy#s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['https://django-e-learning.herokuapp.com/']
+ALLOWED_HOSTS = []
 
 
-# Application definitio
+# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -86,9 +84,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
-DATABASES['default'] = dj_database_url.config(
-    default="postgres://epjvficcksxwft:1aacae2eca91fbf93722b6f889ad5b5867541404b06c5a52dfeb1e4866d525b8@ec2-174-129-225-160.compute-1.amazonaws.com:5432/dfk7aajgck3fb0")
 
 
 # Password validation
