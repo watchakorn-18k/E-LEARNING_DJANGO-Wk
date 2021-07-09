@@ -451,6 +451,7 @@
                                 <p>{{chapter_content.textwork}}</p>
                                 <img class="responsive-img" src="{{chapter_content.work}}">
 
+                                {% if chapter_content.chapter_id == "1.1"%}
                                 <div class="carousel">
                                     <br>
                                     <h5 class="center"><b>ผลงานของนักเรียนใบงานที่ {{chapter_content.chapter_id}}</b>
@@ -502,9 +503,53 @@
                                     {% endif %}
                                     {% endfor %}
                                 </div>
+                                {% endif %}
+                                {% if chapter_content.chapter_id != "1.1"%}
+                                <div class="carousel">
+                                    <br>
+                                    <h5 class="center"><b>ผลงานของนักเรียนใบงานที่ {{chapter_content.chapter_id}}</b>
+                                    </h5>
+                                    <style>
+                                        img {
+                                            border-radius: 30px;
+                                        }
+                                    </style>
+
+                                    {% for st in mT5.Technology_name_m5 %}
+                                    {% if st.work_success_student_2 != "0" and chapter_content.chapter_id == st.name_work_2 %}
+                                    <iframe class="carousel-item" src="{{st.work_success_student_2}}"></iframe>
+
+                                    {% endif %}
+                                    {% if st.work_success_student_3 != "0" and chapter_content.chapter_id == st.name_work_3 %}
+                                    <iframe class="carousel-item" src="{{st.work_success_student_3}}"></iframe>
+
+                                    {% endif %}
+                                    {% if st.work_success_student_4 != "0" and chapter_content.chapter_id == st.name_work_4 %}
+                                    <iframe class="carousel-item" src="{{st.work_success_student_4}}"></iframe>
+                                    {% endif %}
+                                    {% if st.work_success_student_5 != "0" and chapter_content.chapter_id == st.name_work_5 %}
+                                    <iframe class="carousel-item" src="{{st.work_success_student_5}}"></iframe>
+                                    {% endif %}
+                                    {% if st.work_success_student_6 != "0" and chapter_content.chapter_id == st.name_work_6 %}
+                                    <iframe class="carousel-item" src="{{st.work_success_student_6}}"></iframe>
+                                    {% endif %}
+                                    {% if st.work_success_student_7 != "0" and chapter_content.chapter_id == st.name_work_7 %}
+                                    <iframe class="carousel-item" src="{{st.work_success_student_7}}"></iframe>
+                                    {% endif %}
+                                    {% if st.work_success_student_8 != "0" and chapter_content.chapter_id == st.name_work_8 %}
+                                    <iframe class="carousel-item" src="{{st.work_success_student_8}}"></iframe>
+                                    {% endif %}
+                                    {% if st.work_success_student_9 != "0" and chapter_content.chapter_id == st.name_work_9 %}
+                                    <iframe class="carousel-item" src="{{st.work_success_student_9}}"></iframe>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                                {% endif %}
+
                             </div>
                         </li>
                         {% endfor %}
+
 
                         <li>
                             <div class="collapsible-header">
