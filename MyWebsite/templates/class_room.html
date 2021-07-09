@@ -33,6 +33,17 @@
     * {
         font-family: 'Prompt', sans-serif;
     }
+
+    .zoom {
+        transition: transform .4s;
+        padding: 1px;
+    }
+
+    .zoom:hover {
+        margin: 20% 0px;
+        transform: scale(1.5);
+        /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    }
 </style>
 
 <body>
@@ -449,7 +460,12 @@
                                 </b>
                                 <br>
                                 <p>{{chapter_content.textwork}}</p>
-                                <img class="responsive-img" src="{{chapter_content.work}}">
+                                {% if chapter_content.chapter_id == "1.1" or "1.2" or "1.3" %}
+                                <i style="font-size:11px">สามารถใช้แอพพลิเคชั่น Canva หาได้ใน Google Play หรือ <a
+                                        href="https://play.google.com/store/apps/details?id=com.canva.editor&hl=th&gl=US"
+                                        target="_blank" rel="noopener noreferrer">คลิกที่นี่ได้เลย</a></i>
+                                {% endif %}
+                                <img class="responsive-img zoom" src="{{chapter_content.work}}">
 
                                 {% if chapter_content.chapter_id == "1.1"%}
                                 <div class="carousel">
@@ -464,42 +480,9 @@
 
                                     {% for st in mT5.Technology_name_m5 %}
                                     {% if st.work_success_student_1 != "0" and chapter_content.chapter_id == st.name_work_1 %}
-                                    <a class="carousel-item" href="#"><img height="300"
+                                    <a style="transform: 0 !important" class="carousel-item" href="#"><img
+                                            style="transform: 0 !important" height="300"
                                             src="{{st.work_success_student_1}}"></a>
-                                    {% endif %}
-                                    {% if st.work_success_student_2 != "0" and chapter_content.chapter_id == st.name_work_2 %}
-                                    <a class="carousel-item" href="#"><img height="300"
-                                            src="{{st.work_success_student_2}}"></a>
-
-                                    {% endif %}
-                                    {% if st.work_success_student_3 != "0" and chapter_content.chapter_id == st.name_work_3 %}
-                                    <a class="carousel-item" href="#"><img height="300"
-                                            src="{{st.work_success_student_3}}"></a>
-
-                                    {% endif %}
-                                    {% if st.work_success_student_4 != "0" and chapter_content.chapter_id == st.name_work_4 %}
-                                    <a class="carousel-item" href="#"><img height="300"
-                                            src="{{st.work_success_student_4}}"></a>
-                                    {% endif %}
-                                    {% if st.work_success_student_5 != "0" and chapter_content.chapter_id == st.name_work_5 %}
-                                    <a class="carousel-item" href="#"><img height="300"
-                                            src="{{st.work_success_student_5}}"></a>
-                                    {% endif %}
-                                    {% if st.work_success_student_6 != "0" and chapter_content.chapter_id == st.name_work_6 %}
-                                    <a class="carousel-item" href="#"><img height="300"
-                                            src="{{st.work_success_student_6}}"></a>
-                                    {% endif %}
-                                    {% if st.work_success_student_7 != "0" and chapter_content.chapter_id == st.name_work_7 %}
-                                    <a class="carousel-item" href="#"><img height="300"
-                                            src="{{st.work_success_student_7}}"></a>
-                                    {% endif %}
-                                    {% if st.work_success_student_8 != "0" and chapter_content.chapter_id == st.name_work_8 %}
-                                    <a class="carousel-item" href="#"><img height="300"
-                                            src="{{st.work_success_student_8}}"></a>
-                                    {% endif %}
-                                    {% if st.work_success_student_9 != "0" and chapter_content.chapter_id == st.name_work_9 %}
-                                    <a class="carousel-item" href="#"><img height="300"
-                                            src="{{st.work_success_student_9}}"></a>
                                     {% endif %}
                                     {% endfor %}
                                 </div>
@@ -517,11 +500,15 @@
 
                                     {% for st in mT5.Technology_name_m5 %}
                                     {% if st.work_success_student_2 != "0" and chapter_content.chapter_id == st.name_work_2 %}
-                                    <iframe class="carousel-item" src="{{st.work_success_student_2}}"></iframe>
+
+                                    <iframe class="carousel-item" style="width: 229px;height: 230px;"
+                                        src="{{st.work_success_student_2}}"></iframe>
 
                                     {% endif %}
                                     {% if st.work_success_student_3 != "0" and chapter_content.chapter_id == st.name_work_3 %}
-                                    <iframe class="carousel-item" src="{{st.work_success_student_3}}"></iframe>
+                                    <iframe class="carousel-item" style="width: 250px;height: 150px;"
+                                        src="{{st.work_success_student_2}}"
+                                        src="{{st.work_success_student_3}}"></iframe>
 
                                     {% endif %}
                                     {% if st.work_success_student_4 != "0" and chapter_content.chapter_id == st.name_work_4 %}
@@ -976,6 +963,9 @@
         $('.modal').modal();
         $(document).ready(function () {
             $('.carousel').carousel();
+        });
+        $(document).ready(function () {
+            $('.materialboxed').materialbox();
         });
     </script>
 </body>
