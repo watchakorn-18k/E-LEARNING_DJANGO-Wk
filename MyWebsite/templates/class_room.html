@@ -658,8 +658,10 @@
                                 {% endif %}
 
                             </div>
+
                             <div class="collapsible-body" style="display: none;">
                                 <span>
+                                    {% if chapter_content.chapter_id == 1%}
                                     <b>ตัวอย่างแบบสวยงาม : </b>
                                     <div class="container">
 
@@ -691,10 +693,13 @@
                                             <a class="carousel-item" href="#"><img height="200"
                                                     src="https://dekshowport.com/wp-content/uploads/2020/09/%C2%B5%E2%80%94%C2%ABO%CC%83%C2%ACE%CC%88%E2%80%9C%C3%9F-Portfolio_D_13-18.jpg"></a>
                                         </div>
+
                                     </div>
+
                                     <b>ไฟล์ต้นฉบับ : </b>
                                     <a href="https://dekshowport.com/%e0%b8%95%e0%b8%b1%e0%b8%a7%e0%b8%ad%e0%b8%a2%e0%b9%88%e0%b8%b2%e0%b8%87-portfolio-ep221/"
                                         target="_blank" rel="noopener noreferrer">ดาวน์โหลดได้ที่นี่</a>
+                                    {% endif %}
                                     <br>
                                     {% if chapter_content.content != "0"%}
                                     <br>
@@ -720,6 +725,7 @@
                                         </li>
                                     </ul>
                                     {% endif %}
+                                    {% if chapter_content.content_video != "0"%}
                                     <b>วิดีโอสาธิต : </b>
                                     <br>
                                     <ul class="collapsible expandable" data-collapsible="accordion">
@@ -740,6 +746,7 @@
                                             </div>
                                         </li>
                                     </ul>
+                                    {% endif %}
 
                                     <b>ใบงานที่ {{chapter_content.chapter_id_work}} : </b>
                                     {% if chapter_content.lasttime == "ล่าสุด"%}
