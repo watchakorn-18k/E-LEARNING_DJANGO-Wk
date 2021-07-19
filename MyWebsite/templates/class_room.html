@@ -401,8 +401,11 @@
                             active
                             {% endif %}
                             ">
-                                <i class="fas fa-chalkboard-teacher"></i>บทที่ {{chapter_content.chapter_id}}
-                                {{chapter_content.chapter_name}}<b style="color:rgb(255, 166, 0);">
+                                <i class="fas fa-chalkboard-teacher"></i>{% if chapter_content.lasttime == "ล่าสุด"%}<b>บทที่
+                                    {{chapter_content.chapter_id}}
+                                    {{chapter_content.chapter_name}}</b>{% else %}บทที่ {{chapter_content.chapter_id}}
+                                {{chapter_content.chapter_name}}{% endif %}
+                                <b style="color:rgb(255, 166, 0);">
                                     {% if chapter_content.lasttime == "ล่าสุด"%}
                                     *
                                     {% endif %}
@@ -460,9 +463,14 @@
                                 </b>
                                 <br>
                                 <p>{{chapter_content.textwork}}</p>
-                                {% if chapter_content.chapter_id == "1.1" or "1.2" or "1.3" %}
+                                {% if chapter_content.chapter_id == "1.1" or chapter_content.chapter_id == "1.2" or chapter_content.chapter_id == "1.3"  %}
                                 <i style="font-size:11px">สามารถใช้แอพพลิเคชั่น Canva หาได้ใน Google Play หรือ <a
-                                        href="https://play.google.com/store/apps/details?id=com.canva.editor&hl=th&gl=US"
+                                        href="https://play.google.com/store/apps/details?id=com.canva.editor&hl=th&gl=TH"
+                                        target="_blank" rel="noopener noreferrer">คลิกที่นี่ได้เลย</a></i>
+                                {% endif %}
+                                {% if chapter_content.chapter_id == "2.1" or chapter_content.chapter_id == "2.2" or chapter_content.chapter_id == "2.3"  %}
+                                <i style="font-size:11px">สามารถใช้แอพพลิเคชั่น Picsart หาได้ใน Google Play หรือ <a
+                                        href="https://play.google.com/store/apps/details?id=com.picsart.studio&hl=th&gl=TH"
                                         target="_blank" rel="noopener noreferrer">คลิกที่นี่ได้เลย</a></i>
                                 {% endif %}
                                 <img class="responsive-img zoom" src="{{chapter_content.work}}">
