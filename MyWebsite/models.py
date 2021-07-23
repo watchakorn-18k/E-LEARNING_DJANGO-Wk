@@ -101,11 +101,11 @@ class Design_Student_name_m_5(models.Model):
     score_4 = models.IntegerField(
         default="0", verbose_name="คะแนนที่ 4")
     score_5 = models.IntegerField(
-        default="0", verbose_name="คะแนนที่ 5")
+        default="0", verbose_name="คะแนนที่ 5.1")
     score_6 = models.IntegerField(
-        default="0", verbose_name="คะแนนที่ 6")
+        default="0", verbose_name="คะแนนที่ 5.2")
     score_7 = models.IntegerField(
-        default="0", verbose_name="คะแนนที่ 7")
+        default="0", verbose_name="คะแนนที่ 5.3")
     score_8 = models.IntegerField(
         default="0", verbose_name="คะแนนที่ 8")
     score_9 = models.IntegerField(
