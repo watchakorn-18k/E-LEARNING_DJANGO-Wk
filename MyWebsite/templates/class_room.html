@@ -520,7 +520,9 @@
 
                                     {% endif %}
                                     {% if st.work_success_student_4 != "0" and chapter_content.chapter_id == st.name_work_4 %}
-                                    <iframe class="carousel-item" src="{{st.work_success_student_4}}"></iframe>
+                                    <a style="transform: 0 !important" class="carousel-item" href="#"><img
+                                            style="transform: 0 !important" height="300"
+                                            src="{{st.work_success_student_4}}"></a>
                                     {% endif %}
                                     {% if st.work_success_student_5 != "0" and chapter_content.chapter_id == st.name_work_5 %}
                                     <iframe class="carousel-item" src="{{st.work_success_student_5}}"></iframe>
