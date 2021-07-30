@@ -5,6 +5,10 @@
 
 #### CHANGE LOG
 
+## 31.07.2021
+
+- Update Score m.4 Technology 1 person
+
 ## 30.07.2021
 
 - Updated Score ST m.6 And Edit logo added margin 20 px
