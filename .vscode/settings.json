@@ -68,4 +68,6 @@
         "**/templates/*": "django-txt",
         "**/requirements{/**,*}.{txt,in}": "pip-requirements"
     },
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
 }
