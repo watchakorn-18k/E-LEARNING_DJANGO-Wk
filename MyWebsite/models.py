@@ -66,6 +66,10 @@ class Student_name_m_4(models.Model):
         default="0", verbose_name="คะแนนที่ 8")
     score_9 = models.IntegerField(
         default="0", verbose_name="คะแนนที่ 9")
+    score_midterm = models.IntegerField(
+        default="0", verbose_name="คะแนนสอบกลางภาค")
+    score_finalterm = models.IntegerField(
+        default="0", verbose_name="คะแนนสอบปลายภาค")
 
     class Meta:
         verbose_name_plural = "รายชื่อนักเรียนวิชาออกแบบและเทคโนโลยี ม.4"
@@ -75,7 +79,7 @@ class Student_name_m_4(models.Model):
 
     def sum_score(self):
         sum_scores = [self.score_1, self.score_2, self.score_3, self.score_4,
-                      self.score_5, self.score_6, self.score_7, self.score_8, self.score_9]
+                      self.score_5, self.score_6, self.score_7, self.score_8, self.score_9, self.score_midterm, self.score_finalterm]
         sum_scores = [int(x) for x in sum_scores]
         total = 0
         for i in range(0, len(sum_scores)):
@@ -110,6 +114,10 @@ class Design_Student_name_m_5(models.Model):
         default="0", verbose_name="คะแนนที่ 8")
     score_9 = models.IntegerField(
         default="0", verbose_name="คะแนนที่ 9")
+    score_midterm = models.IntegerField(
+        default="0", verbose_name="คะแนนสอบกลางภาค")
+    score_finalterm = models.IntegerField(
+        default="0", verbose_name="คะแนนสอบปลายภาค")
 
     class Meta:
         verbose_name_plural = "รายชื่อนักเรียนวิชาออกแบบและเทคโนโลยี ม.5"
@@ -119,7 +127,7 @@ class Design_Student_name_m_5(models.Model):
 
     def sum_score(self):
         sum_scores = [self.score_1, self.score_2, self.score_3, self.score_4,
-                      self.score_5, self.score_6, self.score_7, self.score_8, self.score_9]
+                      self.score_5, self.score_6, self.score_7, self.score_8, self.score_9, self.score_midterm, self.score_finalterm]
         sum_scores = [int(x) for x in sum_scores]
         total = 0
         for i in range(0, len(sum_scores)):
@@ -209,6 +217,10 @@ class Technology_Student_name_m_5(models.Model):
     work_success_student_9 = models.TextField(
 
         max_length=5000, default="0", verbose_name="ผลงานที่เสร็จ 9")
+    score_midterm = models.IntegerField(
+        default="0", verbose_name="คะแนนสอบกลางภาค")
+    score_finalterm = models.IntegerField(
+        default="0", verbose_name="คะแนนสอบปลายภาค")
 
     class Meta:
         verbose_name_plural = "รายชื่อนักเรียนวิชาเทคโนโลยี ม.5"
@@ -218,7 +230,7 @@ class Technology_Student_name_m_5(models.Model):
 
     def sum_score(self):
         sum_scores = [self.score_1, self.score_2, self.score_3, self.score_4,
-                      self.score_5, self.score_6, self.score_7, self.score_8, self.score_9]
+                      self.score_5, self.score_6, self.score_7, self.score_8, self.score_9, self.score_midterm, self.score_finalterm]
         sum_scores = [int(x) for x in sum_scores]
         total = 0
         for i in range(0, len(sum_scores)):
@@ -307,6 +319,10 @@ class SBMLD_Student_name_m_6(models.Model):
     work_success_student_9 = models.TextField(
 
         max_length=5000, default="0", verbose_name="ผลงานที่เสร็จ 9")
+    score_midterm = models.IntegerField(
+        default="0", verbose_name="คะแนนสอบกลางภาค")
+    score_finalterm = models.IntegerField(
+        default="0", verbose_name="คะแนนสอบปลายภาค")
 
     class Meta:
         verbose_name_plural = "รายชื่อนักเรียนวิชา SBMLD ม.6"
@@ -316,7 +332,7 @@ class SBMLD_Student_name_m_6(models.Model):
 
     def sum_score(self):
         sum_scores = [self.score_1, self.score_2, self.score_3, self.score_4,
-                      self.score_5, self.score_6, self.score_7, self.score_8, self.score_9]
+                      self.score_5, self.score_6, self.score_7, self.score_8, self.score_9, self.score_midterm, self.score_finalterm]
         sum_scores = [int(x) for x in sum_scores]
         total = 0
         for i in range(0, len(sum_scores)):

@@ -149,7 +149,11 @@
                                         <tr>
                                             <th>ชื่อนักเรียน</th>
                                             {% for chapter_content in content_D4.content_m4 %}
+                                            {% if chapter_content.chapter_name == "สอบกลางภาค"%}
+                                            <th>สอบกลางภาค</th>
+                                            {% else  %}
                                             <th>ใบงานที่ {{chapter_content.chapter_id}}</th>
+                                            {% endif %}
                                             {% endfor%}
                                         </tr>
                                     </thead>
@@ -213,6 +217,14 @@
                                             <td style="color: green;"></td>
                                             {% endif %}
 
+                                            {% if st.score_midterm >= 1  %}
+                                            <td style="color: green;">
+                                                <i class="fas fa-check-circle"></i>
+                                            </td>
+                                            {% else  %}
+                                            <td style="color: green;"></td>
+                                            {% endif %}
+
                                             {% if st.score_8 >= 1  %}
                                             <td style="color: green;">
                                                 <i class="fas fa-check-circle"></i>
@@ -226,6 +238,14 @@
                                                 <i class="fas fa-check-circle"></i>
                                             </td>
 
+                                            {% else  %}
+                                            <td style="color: green;"></td>
+                                            {% endif %}
+
+                                            {% if st.score_finalterm >= 1  %}
+                                            <td style="color: green;">
+                                                <i class="fas fa-check-circle"></i>
+                                            </td>
                                             {% else  %}
                                             <td style="color: green;"></td>
                                             {% endif %}
@@ -302,7 +322,11 @@
                                         <tr>
                                             <th>ชื่อนักเรียน</th>
                                             {% for chapter_content in content_D5.Design_content_m5 %}
+                                            {% if chapter_content.chapter_name == "สอบกลางภาค"%}
+                                            <th>สอบกลางภาค</th>
+                                            {% else  %}
                                             <th>ใบงานที่ {{chapter_content.chapter_id}}</th>
+                                            {% endif %}
                                             {% endfor%}
                                         </tr>
                                     </thead>
@@ -367,6 +391,14 @@
                                             {% endif %}
 
                                             {% if st.score_8 >= 1  %}
+                                            <td style="color: green;">
+                                                <i class="fas fa-check-circle"></i>
+                                            </td>
+                                            {% else  %}
+                                            <td style="color: green;"></td>
+                                            {% endif %}
+
+                                            {% if st.score_midterm >= 1  %}
                                             <td style="color: green;">
                                                 <i class="fas fa-check-circle"></i>
                                             </td>
