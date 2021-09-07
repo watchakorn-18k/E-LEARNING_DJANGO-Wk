@@ -13,13 +13,13 @@ class Subject_headAdminSite(admin.ModelAdmin):
 class Student_name_m_4AdminSite(admin.ModelAdmin):
     model = Student_name_m_4
     list_display = ("first_name", "last_name", "score_1", "score_2",
-                    "score_3", "score_4", "score_5", "score_6", "score_7", "score_8", "score_9", "sum_score")
+                    "score_3", "score_4", "score_5", "score_6", "score_7", "score_8", "score_9", "score_midterm", "score_finalterm", "sum_score")
 
 
 class Design_Student_name_m_5AdminSite(admin.ModelAdmin):
     model = Design_Student_name_m_5
     list_display = ("first_name", "last_name", "score_1", "score_2",
-                    "score_3", "score_4", "score_5", "score_6", "score_7", "score_8", "score_9", "sum_score")
+                    "score_3", "score_4", "score_5", "score_6", "score_7", "score_8", "score_9", "score_midterm", "score_finalterm", "sum_score")
 
 
 class Technology_Student_name_m_5AdminSite(admin.ModelAdmin):

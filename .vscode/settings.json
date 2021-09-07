@@ -13,8 +13,6 @@
     "php.validate.executablePath": "D:\\xampp\\php\\php.exe",
     "python.formatting.provider": "autopep8",
     "editor.formatOnSave": true,
-    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",
-    "terminal.integrated.shellArgs.windows": [],
     "extensions.ignoreRecommendations": true,
     "workbench.iconTheme": "vscode-icons",
     "editor.suggestSelection": "first",

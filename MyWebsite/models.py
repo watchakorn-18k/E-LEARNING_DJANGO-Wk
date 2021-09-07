@@ -51,17 +51,17 @@ class Student_name_m_4(models.Model):
     score_1 = models.IntegerField(
         default="0", verbose_name="คะแนนที่ 1")
     score_2 = models.IntegerField(
-        default="0", verbose_name="คะแนนที่ 2")
+        default="0", verbose_name="คะแนนที่ 2.1")
     score_3 = models.IntegerField(
-        default="0", verbose_name="คะแนนที่ 3")
+        default="0", verbose_name="คะแนนที่ 2.2")
     score_4 = models.IntegerField(
-        default="0", verbose_name="คะแนนที่ 4")
+        default="0", verbose_name="คะแนนที่ 3.1")
     score_5 = models.IntegerField(
-        default="0", verbose_name="คะแนนที่ 5")
+        default="0", verbose_name="คะแนนที่ 3.2")
     score_6 = models.IntegerField(
-        default="0", verbose_name="คะแนนที่ 6")
+        default="0", verbose_name="คะแนนที่ 4.1")
     score_7 = models.IntegerField(
-        default="0", verbose_name="คะแนนที่ 7")
+        default="0", verbose_name="คะแนนที่ 4.2")
     score_8 = models.IntegerField(
         default="0", verbose_name="คะแนนที่ 8")
     score_9 = models.IntegerField(
@@ -111,7 +111,7 @@ class Design_Student_name_m_5(models.Model):
     score_7 = models.IntegerField(
         default="0", verbose_name="คะแนนที่ 5.3")
     score_8 = models.IntegerField(
-        default="0", verbose_name="คะแนนที่ 8")
+        default="0", verbose_name="คะแนนที่ 5.4")
     score_9 = models.IntegerField(
         default="0", verbose_name="คะแนนที่ 9")
     score_midterm = models.IntegerField(
@@ -147,52 +147,52 @@ class Technology_Student_name_m_5(models.Model):
         max_length=5000, verbose_name="นามสกุล")
     name_work_1 = models.TextField(
 
-        max_length=5000, default="1", verbose_name="ใบงานที่ 1")
+        max_length=5000, default="1.1", verbose_name="ใบงานที่ 1.1")
     score_1 = models.IntegerField(
-        default="0", verbose_name="คะแนนใบงานที่ 1")
+        default="0", verbose_name="คะแนนใบงานที่ 1.1")
     work_success_student_1 = models.TextField(
 
-        max_length=5000, default="0", verbose_name="ผลงานที่เสร็จ 1")
+        max_length=5000, default="0", verbose_name="ผลงานที่เสร็จ 1.1")
     name_work_2 = models.TextField(
 
-        max_length=5000, default="2", verbose_name="ใบงานที่ 2")
+        max_length=5000, default="1.2", verbose_name="ใบงานที่ 1.2")
     score_2 = models.IntegerField(
-        default="0", verbose_name="คะแนนใบงานที่ 2")
+        default="0", verbose_name="คะแนนใบงานที่ 1.2")
     work_success_student_2 = models.TextField(
 
-        max_length=5000, default="0", verbose_name="ผลงานที่เสร็จ 2")
+        max_length=5000, default="0", verbose_name="ผลงานที่เสร็จ 1.2")
     name_work_3 = models.TextField(
 
-        max_length=5000, default="3", verbose_name="ใบงานที่ 3")
+        max_length=5000, default="1.3", verbose_name="ใบงานที่ 1.3")
     score_3 = models.IntegerField(
-        default="0", verbose_name="คะแนนใบงานที่ 3")
+        default="0", verbose_name="คะแนนใบงานที่ 1.3")
     work_success_student_3 = models.TextField(
 
-        max_length=5000, default="0", verbose_name="ผลงานที่เสร็จ 3")
+        max_length=5000, default="0", verbose_name="ผลงานที่เสร็จ 1.3")
     name_work_4 = models.TextField(
 
-        max_length=5000, default="4", verbose_name="ใบงานที่ 4")
+        max_length=5000, default="2.1", verbose_name="ใบงานที่ 2.1")
     score_4 = models.IntegerField(
-        default="0", verbose_name="คะแนนใบงานที่ 4")
+        default="0", verbose_name="คะแนนใบงานที่ 2.1")
     work_success_student_4 = models.TextField(
 
-        max_length=5000, default="0", verbose_name="ผลงานที่เสร็จ 4")
+        max_length=5000, default="0", verbose_name="ผลงานที่เสร็จ 2.1")
     name_work_5 = models.TextField(
 
-        max_length=5000, default="5", verbose_name="ใบงานที่ 5")
+        max_length=5000, default="2.2", verbose_name="ใบงานที่ 2.2")
     score_5 = models.IntegerField(
-        default="0", verbose_name="คะแนนใบงานที่ 5")
+        default="0", verbose_name="คะแนนใบงานที่ 2.2")
     work_success_student_5 = models.TextField(
 
-        max_length=5000, default="0", verbose_name="ผลงานที่เสร็จ 5")
+        max_length=5000, default="0", verbose_name="ผลงานที่เสร็จ 2.2")
     name_work_6 = models.TextField(
 
-        max_length=5000, default="6", verbose_name="ใบงานที่ 6")
+        max_length=5000, default="2.3", verbose_name="ใบงานที่ 2.3")
     score_6 = models.IntegerField(
-        default="0", verbose_name="คะแนนใบงานที่ 6")
+        default="0", verbose_name="คะแนนใบงานที่ 2.3")
     work_success_student_6 = models.TextField(
 
-        max_length=5000, default="0", verbose_name="ผลงานที่เสร็จ 6")
+        max_length=5000, default="0", verbose_name="ผลงานที่เสร็จ 2.3")
     name_work_7 = models.TextField(
 
         max_length=5000, default="7", verbose_name="ใบงานที่ 7")
